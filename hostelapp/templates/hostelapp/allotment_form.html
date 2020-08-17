@@ -1,0 +1,21 @@
+{% extends 'hostelapp/navbar.html' %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+
+
+<form action="" method="POST">
+ {% csrf_token %}
+<center><h2>ALLOTMENT FORM</h2></center>
+<div class="container">
+{{form.as_p}}
+
+
+<input type="submit" name="Submit">
+</div>
+</form>
+
+</body>
+</html>
+{% endblock %}

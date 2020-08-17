@@ -1,0 +1,156 @@
+ {% extends 'hostelapp/navbar.html' %}
+ {% load static %}
+ {% block content %} 
+ <br>
+{% comment %} <div>
+    <table class="table table-warning" border="3" align="center" height="100px" width="200px" >
+    
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <tbody>
+        
+        <tr>
+        <td align="center"><label>NOTICE</label></td>
+        <td align="center"><input type="file" name='notice' ></input></td>
+        </tr>
+		<tr>
+        <td align="center"><label>Title</label></td>
+        <td align="center"><input type="text" name="title" ></input></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+              <button type="submit" class="btn btn-primary btn-lg btn-block">upload</button>
+            </td>
+          </tr>
+        </tbody>
+        </form>
+        </table>
+        
+   
+        </div>
+       {% endcomment %}
+<br>
+<div class="container">
+    <form method="GET" action="{% url 'dashboard' %}">
+      <input type="text" name="q" value="{{request.GET.q}}" placeholder="Search Book">
+      <input type="submit" value="Search">
+    </form>
+    <h5>Search by any column from the table below</h5>
+  </div>
+<br>
+	<h5>STUDENTS:</h5>
+		<hr>
+<div class="row">
+	<div class="col-md-13">
+	
+		<div class="card card-body">
+			{% comment %} <a class="btn btn-primary  btn-sm btn-block" href="">ADD STUDENT</a> {% endcomment %}
+			<table class="table table-sm">
+				<tr>
+					{% comment %} <th></th> {% endcomment %}
+					<th>NAME</th>
+					<th>EMAIL</th>
+          <th>CONTACT</th>
+          <th>FATHER'S NAME</th>
+          {% comment %} <th>GENDER</th> {% endcomment %}
+          <th>ENROLLMENT NO</th>
+          <th>COURSE</th>
+          <th>ADDRESS</th>
+          <th>DOB</th>
+          <th>YEAR</th>
+          <th>ROOM</th>
+          <th>Update</th>
+					<th>Remove</th>
+          {% comment %} <th>ROOM</th> {% endcomment %}
+        
+				</tr>
+
+				{% for student in students %}
+					<tr>
+						{% comment %} <td><a class="btn btn-sm btn-info" href="{% url 'customer' customer.id %}">View</a></td> {% endcomment %}
+						<td>{{student.student_name}}</td>
+						<td>{{student.student_mail}}</td>
+            <td>{{student.student_contact}}</td>
+            <td>{{student.father_name}}</td>
+            {% comment %} <td>{{student.gender}}</td> {% endcomment %}
+            <td>{{student.enrollment_no}}</td>
+            <td>{{student.course}}</td>
+            <td>{{student.student_address}}</td>
+            <td>{{student.dob}}</td>
+            <td>{{student.curr_year}}</td>
+            <td>{{student.room}}</td>
+            <td><a class="btn btn-sm btn-info" href="{% url 'update_student' student.id %}">Update</a></td>
+
+						<td><a class="btn btn-sm btn-danger" href="{% url 'delete_student' student.id %}">Delete</a></td>
+					</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+{% endblock %} 
+	{% comment %} <div class="col-md-7">
+		<h5>LAST 5 ORDERS</h5>
+		<hr>
+		<div class="card card-body">
+			
+			<table class="table table-sm">
+				<tr>
+					<th>Product</th>
+					<th>Date Orderd</th>
+					<th>Status</th>
+					<th>Update</th>
+					<th>Remove</th>
+				</tr>
+
+				{% for order in orders %}
+					<tr>
+						<td>{{order.product}}</td>
+						<td>{{order.date_created}}</td>
+						<td>{{order.status}}</td>
+						<td><a class="btn btn-sm btn-info" href="{% url 'update_order' order.id %}">Update</a></td>
+
+						<td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>
+
+					</tr>
+				{% endfor %}
+
+		
+			</table>
+		</div>
+	</div>
+
+</div> {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+<!-- Begin Page Content -->
+        {% comment %} <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+          </div>
+        </div> 
+       <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{% static 'img/images.jfif' %}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Cras justo odio</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div> {% endcomment %}

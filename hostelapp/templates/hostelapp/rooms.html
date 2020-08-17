@@ -1,0 +1,71 @@
+ {% extends 'hostelapp/navbar.html' %}
+ {% load static %}
+ {% block content %} 
+<br>
+ 
+  <center>
+<a class="btn btn-gray" href="#">
+ From the rooms given below choose one and carefully fill the <strong>Room no.</strong> in your form
+</a>
+</center>
+<center>
+<a class="btn btn-warning" href="{% url 'account' %}">
+&#8592; Back to form
+</a>
+</center>
+
+<hr>
+	<h5>ROOMS:</h5>
+<div class="row">
+	{% comment %} <div class="col-md-4"> {% endcomment %}
+	
+		
+		<div class="card card-body">
+			{% comment %} <a class="btn btn-primary  btn-sm btn-block" href="">ADD STUDENT</a> {% endcomment %}
+			<table class="table table-sm">
+				<tr>
+					{% comment %} <th></th> {% endcomment %}
+					<th>ROOM No.</th>
+					<th>Floor</th>
+					<th>Room Type</th>
+ 
+          <th>Vacancy</th>
+ 
+        
+				</tr>
+
+				{% for room in room %}
+                    {% if room.capacity > 0 %}
+                        <tr>
+						
+						<td>{{room.no}}</td>
+						<td>{{room.floor}}</td>
+						<td>{{room.room_type}}</td>
+                        <td>{{room.capacity}}</td>
+          
+                        </tr>
+                     {% endif %}
+				{% endfor %}    
+            {% comment %} <td>{{room.vacant}}</td> {% endcomment %}
+            {% comment %} <td><a class="btn btn-sm btn-info" href="{% url 'update_student' student.id %}">Update</a></td> {% endcomment %}
+
+					
+                    
+
+			</table>
+			
+		</div>
+	</div>
+	<p>(*T=TRIPLE SEATER, *D =DOUBLE SEATER, *S = SINGLE SEATER)</p>
+	<br>
+{% endblock %} 
+
+
+
+
+
+
+
+
+
+

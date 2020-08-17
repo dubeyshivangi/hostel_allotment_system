@@ -1,0 +1,17 @@
+ {% extends 'hostelapp/navbar.html' %}
+ {% load static %}
+ {% block content %} 
+<br>
+
+<form action="" method="POST">
+ {% csrf_token %}
+<h2>Select Room From The Table Below</h2>
+<div class="container">
+    <div class="form-row">
+          <label>Room</label>
+          <input class="form-control" name="room">
+    </div>
+</div>
+</form>
+<a class="btn btn-primary  btn-sm btn-block" href="{% url 'room' %}">CHOOSE ROOM</a>
+{% endblock %} 

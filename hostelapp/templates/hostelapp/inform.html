@@ -1,0 +1,117 @@
+{% extends 'hostelapp/navbar.html' %}
+{% load static %}
+{% block content %}
+<br>
+
+<br>
+
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+    <h3>RECENT NOTICE</h3>
+
+          <!-- Content Row -->
+          <div class="row">
+                      <div class="col-xl-4 col-md-6 mb-4">
+              
+                <div class="container-fluid">
+
+  <div id="div1" class="jumbotron bg-gray ">
+ 
+  {% comment %} <h1>RECENT NOTICE</h1> {% endcomment %}
+    <marquee direction="up" scrollamount="5" onmouseover="this.stop()" onmouseout="this.start()" loop="1000"height="100">
+
+    {% for i in data %}
+        
+        <a href="{{i.notice.url}}" class="btn btn-info btn-block" role="button">NOTICE :{{i.title}}</a>
+    {% endfor %} 
+    </marquee>
+ 
+  </div>
+
+              </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-4 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Warden Details</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-4 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Students  :  
+                      {{total_students}}</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">Total Btech Students  :  
+                      {{btech_students}}</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">Total MCA Students  :  
+                      {{mca_students}}</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">Total MBA Students  :  
+                      {{mba_students}}</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">Total Mtech Students  :  
+                      {{mtech_students}}</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+
+            
+            </div>
+          </div>
+
+          <!-- Content Row -->
+
+          {% comment %} <div class="col-lg-6 mb-4"> {% endcomment %}
+         
+              <!-- Illustrations -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
+                </div>
+                <div class="card-body">
+                  <div class="text-center">
+                  <marquee direction="right" scrollamount="15" onmouseover="this.stop()" onmouseout="this.start()" loop="100"height="300">
+
+                    
+                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="{% static 'img/images.jfif' %}" alt="">
+                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="{% static 'img/images.jfif' %}" alt="">
+                    
+</marquee>
+                  </div>
+                  <h1>Hostel Facilities</h1>
+                  <p>We provide Excellent Hostel Facilities.</p>
+                  <p>Spacious rooms with attached bath are available for both Boys and Girls.</p>
+                  <p>Mineral water Facilities.</p>
+                  <p>Laundry and Ironing facility available.</p>
+                  <p>Medical facility available with free medicines provided to sick students.</p>
+                  <p>Uninterrupted power supply , separate Generator for Students.</p>
+                  <a target="_blank" rel="nofollow" href="#">VISIT OUR Hostel</a>
+                </div>
+              </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct node{
+int data;
+struct node *next;
+}*head=NULL;
+void create(int A[],int n)
+{  struct node *t,*last;
+   int i;
+   head=(struct node*)malloc(sizeof(struct node));
+   head->data=A[0];
+   head->next=NULL;
+   last=head;
+   for(i=1;i<n;i++)
+   {
+     t=(struct node*)malloc(sizeof(struct node));
+     t->data=A[i];
+     t->next=NULL;
+     last->next=t;
+     last=t;
+   }
+}
+void disp(struct node *p)
+{
+    while(p)
+    {
+        printf("%d",p->data);
+        p=p->next;
+    }
+}
+void recdis(struct node *p)
+{
+    if(p)
+    {
+
+        recdis(p->next);
+        printf("%d",p->data);
+    }
+}
+int count(struct node *p)
+{
+    int c=0;
+    while(p)
+    {
+        c+=p->data;
+        p=p->next;
+
+    }return c;
+}
+int reccount(struct node *p)
+{
+
+    if(p)
+      return reccount(p->next)+p->data;
+    else
+        return 0;
+}
+int lsearch(struct node *p,int x)
+{
+    while(p)
+    {
+        if(p->data==x)
+        return 1;
+        else
+        p=p->next;
+        
+    }
+    return 0;
+    
+}
+int main()
+{ int A[]={1,2,3,4,5};
+create(A,5);
+disp(head);
+printf("%d",lsearch(head,1));
+
+    return 0;
+}
