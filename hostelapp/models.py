@@ -12,7 +12,7 @@ class Student(models.Model):
     gender_choices = [('M', 'Male'), ('F', 'Female')]
     student_name = models.CharField(max_length=200, null=True)
     student_mail = models.CharField(max_length=200, null=True)
-    student_contact=models.IntegerField(null=True)
+    student_contact=models.CharField(max_length=10, null=True)
     father_name = models.CharField(max_length=200, null=True)
     enrollment_no = models.IntegerField(unique=True, null=True)
     courses = (
@@ -40,7 +40,7 @@ class Student(models.Model):
     )
 
     curr_year = models.CharField(max_length=50,null=True,choices=YEARS_CHOICE)
-
+    fees_receipt=models.FileField(null=True,blank=True)
     room = models.IntegerField(null=True)
     room_allotted = models.BooleanField(default=False)
     no_dues = models.BooleanField(default=True)

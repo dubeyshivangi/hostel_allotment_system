@@ -129,7 +129,7 @@ def updateStudent(request, pk):
 	form = StudentForm(instance=student)
 
 	if request.method == 'POST':
-		form = StudentForm(request.POST, instance=student)
+		form = StudentForm(request.POST, request.FILES, instance=student)
 		if form.is_valid():
 			form.save()
 			return redirect('dashboard')
@@ -167,7 +167,7 @@ def accountSettings(request):
             email_from = settings.EMAIL_HOST_USER
             recipient_list = [mail]
             res = send_mail(subject, message, email_from, recipient_list)
-            messages.info(request, " new account added")        
+            # messages.info(request, " new account added")        
     
     context = {'form':form}
     return render(request, 'hostelapp/account_settings.html', context)
